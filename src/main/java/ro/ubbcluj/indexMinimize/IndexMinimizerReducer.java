@@ -12,8 +12,9 @@ public class IndexMinimizerReducer extends Reducer<Text, Text, Text, Text> {
     public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         StringBuilder filesAndRows = new StringBuilder();
         for (Text text: values) {
-            filesAndRows.append(text.toString());
+            filesAndRows.append(text.toString()).append(",");
         }
+        filesAndRows.deleteCharAt(filesAndRows.length() - 1);
         result.set(filesAndRows.toString());
         context.write(key, result);
     }
