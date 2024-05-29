@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+group = 'ro.ubbcluj'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    archiveBaseName = 'inverted-index'
+    archiveVersion =  '0.1.0'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-common
+    implementation("org.apache.hadoop:hadoop-common:3.3.5")
+
+    // https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-mapreduce-client-core
+    implementation("org.apache.hadoop:hadoop-mapreduce-client-core:3.3.5")
+}
+
+test {
+    useJUnitPlatform()
+}
