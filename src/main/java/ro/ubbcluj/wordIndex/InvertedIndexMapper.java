@@ -1,4 +1,4 @@
-package ro.ubbcluj;
+package ro.ubbcluj.wordIndex;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -108,7 +108,7 @@ public class InvertedIndexMapper extends Mapper<Object, Text, Text, LongWritable
         while (itr.hasMoreTokens()) {
             currentToken = itr.nextToken().toLowerCase(); // TODO: Add flag to select case sensitiveness
             if (!stopWords.contains(currentToken)) {
-                newKey = currentToken + "," + fileName;
+                newKey = currentToken + ":" + fileName;
                 wordLocation.set(newKey);
                 lineWritable.set(line);
                 context.write(wordLocation, lineWritable);

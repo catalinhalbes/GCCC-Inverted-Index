@@ -1,4 +1,4 @@
-package ro.ubbcluj;
+package ro.ubbcluj.wordIndex;
 
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;

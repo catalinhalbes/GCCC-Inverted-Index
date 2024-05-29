@@ -1,4 +1,4 @@
-package ro.ubbcluj;
+package ro.ubbcluj.blockLineCount;
 
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.WritableComparable;

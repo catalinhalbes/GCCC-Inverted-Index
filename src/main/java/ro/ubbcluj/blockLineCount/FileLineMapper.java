@@ -1,4 +1,4 @@
-package ro.ubbcluj;
+package ro.ubbcluj.blockLineCount;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.LongWritable;
