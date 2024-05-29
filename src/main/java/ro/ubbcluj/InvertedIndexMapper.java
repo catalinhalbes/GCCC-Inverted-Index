@@ -46,7 +46,7 @@ public class InvertedIndexMapper extends Mapper<Object, Text, Text, LongWritable
             BufferedReader stopWordsFile = new BufferedReader(new FileReader(stopWordsPath));
             String line = stopWordsFile.readLine();
             while (line != null) {
-                stopWords.add(line);
+                stopWords.add(line.toLowerCase()); // TODO: Add flag to select case sensitiveness
                 line = stopWordsFile.readLine();
             }
         } catch (IOException e) {
@@ -106,7 +106,7 @@ public class InvertedIndexMapper extends Mapper<Object, Text, Text, LongWritable
         String currentToken;
         String newKey;
         while (itr.hasMoreTokens()) {
-            currentToken = itr.nextToken();
+            currentToken = itr.nextToken().toLowerCase(); // TODO: Add flag to select case sensitiveness
             if (!stopWords.contains(currentToken)) {
                 newKey = currentToken + "," + fileName;
                 wordLocation.set(newKey);
